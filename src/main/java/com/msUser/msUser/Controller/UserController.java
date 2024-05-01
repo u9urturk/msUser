@@ -36,10 +36,7 @@ public class UserController {
 	public DataResult<List<User>> getAll(){
 		return this.service.getAll();
 	}
-	@GetMapping("/getbyphonenumber")
-	public DataResult<User> findByPhoneNumber(@RequestParam String phoneNumber){
-		return this.service.findByPhoneNumber(phoneNumber);
-	}
+
 	
 	@PostMapping("/addUser")
 	public 	Result add(@RequestBody User user) {

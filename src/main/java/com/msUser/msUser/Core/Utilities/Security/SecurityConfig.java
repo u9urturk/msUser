@@ -13,21 +13,26 @@ public class SecurityConfig {
 	
 	  @Autowired
 	    private CustomAuthenticationSuccessHandler customAuthenticationSuccessHandler;
+	  
+	  private static final String[] SWAGGER_WHITELIST = {
+		"/swagger-ui/**",
+		"/v3/api/doc/**",
+		"/swagger-resources/**",
+		"/swagger-resources"
+	  };
 	
 	@Bean
-	public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
+	public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 		
-		httpSecurity
-			.csrf()
-			.disable()
+		http
+		    .csrf().disable()
 			.authorizeHttpRequests()
-			.anyRequest()
-			.authenticated()
+			
+			.anyRequest().authenticated()
 			.and()
 			.oauth2Login().successHandler(customAuthenticationSuccessHandler);
-			;
 		
 		
-		return httpSecurity.build();
+		return http.build();
 	}
 }

@@ -15,7 +15,7 @@ public interface UserService {
 	
 	DataResult<List<User>> getAll();
 
-	DataResult<User> findByPhoneNumber(String phoneNumber);
+	
 	
 	
 }

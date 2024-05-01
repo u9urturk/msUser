@@ -46,7 +46,6 @@ public class UserManager implements UserService {
 		
 		existingUser.setFirstName(user.getFirstName()==null?existingUser.getFirstName():user.getFirstName());
 		existingUser.setLastName(user.getLastName()==null?existingUser.getLastName():user.getLastName());
-		existingUser.setPhoneNumber(user.getPhoneNumber()==null?existingUser.getPhoneNumber():user.getPhoneNumber());
 		
 		userDao.save(existingUser);	
 		return new SuccessResult("Güncellendi");
@@ -59,10 +58,7 @@ public class UserManager implements UserService {
 		return new SuccessDataResult<List<User>>(this.userDao.findAll(), "Başarılı");
 	}
 
-	@Override
-	public DataResult<User> findByPhoneNumber(String phoneNumber) {
-		return new SuccessDataResult<User>(this.userDao.findByPhoneNumber(phoneNumber),"Başarılı");
-	}
+	
 
 	
 

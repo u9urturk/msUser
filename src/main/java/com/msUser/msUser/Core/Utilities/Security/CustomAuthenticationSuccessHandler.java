@@ -49,17 +49,19 @@ public class CustomAuthenticationSuccessHandler implements AuthenticationSuccess
 			}
 			user.setFirstName(firstName);
 			user.setLastName(lastName);
+			user.setRegisterType(2);
 		} else if (attributes.get("sub") != null) {
 			user.setFirstName(attributes.get("given_name").toString());
 			user.setLastName(attributes.get("family_name").toString());
+			user.setRegisterType(3);
 
 		} else {
 			System.out.println("diğer");
 		}
 		
-		service.add(user);
+//		service.add(user);
 		
-		response.sendRedirect("/api/users/getall");
+		 response.sendRedirect("/swagger-ui.html");
 
 	}
 
