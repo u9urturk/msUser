@@ -12,9 +12,11 @@ public interface UserService {
 	Result delete(User user);
 
 	Result update(User user);
-
+	
 	DataResult<List<User>> getAll();
 
 	DataResult<User> findByPhoneNumber(String phoneNumber);
+	
+	
 }
 //

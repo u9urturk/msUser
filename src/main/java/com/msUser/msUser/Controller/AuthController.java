@@ -8,7 +8,7 @@ import com.msUser.msUser.Core.Utilities.Results.DataResult;
 import com.msUser.msUser.Core.Utilities.Results.SuccessDataResult;
 
 @RestController
-@RequestMapping("/api/v1/demo")
+@RequestMapping("/api/login")
 public class AuthController {
 	
 	@GetMapping()

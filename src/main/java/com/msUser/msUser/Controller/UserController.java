@@ -1,7 +1,11 @@
 package com.msUser.msUser.Controller;
 
 import java.util.List;
+import java.util.Map;
 
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.oauth2.core.user.OAuth2User;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -27,12 +31,13 @@ public class UserController {
 	}
 	
 	
+	
 	@GetMapping("/getall")
 	public DataResult<List<User>> getAll(){
 		return this.service.getAll();
 	}
 	@GetMapping("/getbyphonenumber")
-	DataResult<User> findByPhoneNumber(@RequestParam String phoneNumber){
+	public DataResult<User> findByPhoneNumber(@RequestParam String phoneNumber){
 		return this.service.findByPhoneNumber(phoneNumber);
 	}
 	
@@ -47,7 +52,7 @@ public class UserController {
 	}
 	
 	@DeleteMapping("/deleteUser")
-	Result delete(@RequestBody User user) {
+	public Result delete(@RequestBody User user) {
 		return this.service.delete(user);
 	}
 

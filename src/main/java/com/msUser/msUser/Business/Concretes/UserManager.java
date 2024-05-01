@@ -64,4 +64,6 @@ public class UserManager implements UserService {
 		return new SuccessDataResult<User>(this.userDao.findByPhoneNumber(phoneNumber),"Başarılı");
 	}
 
+	
+
 }

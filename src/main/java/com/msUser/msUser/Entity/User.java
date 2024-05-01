@@ -28,7 +28,6 @@ public class User {
 	@Column(name="last_name")
 	private String lastName;
 	
-	@NotBlank(message = "phone_number cannot be blank")
 	@Size(min = 11,max = 11,message = "data must consist of 11 characters")
 	@Column(name="phone_number")
 	private String phoneNumber;
